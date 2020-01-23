@@ -155,7 +155,7 @@ El formato de las películas será el siguiente:
 ```
 movie = {
   "id": 1,
-  "name": "Back to the Future",
+  "title": "Back to the Future",
   "year": 1985,
   "genre": "Science Fiction"
 }
@@ -172,7 +172,7 @@ movie = {
 - `GET /api/movies`: retorna el array de películas, en formato `JSON`.
 - `GET /api/movies/:id`: retorna la película con el `id` correspondiente, en formato `JSON`. En el caso de que no exista, generar el error `"404 - The movie with the id {ID} was not found"` (donde ID es el parámetro utilizado) con `status code` 404 y pasarle el objeto `err` a `next`.
 - `POST /api/movies`: agrega una nueva película, con la info especificada más arriba. Validar el `body` del request como se indica más abajo. Si es inválido, generar el error `"400 - Bad Request"` y pasarle el objeto `err` a `next`, sino, agregar la película correspondiente y retornar la info de la misma en el `response`.
-- `PUT /api/movies/:id`: actualiza la info de una película (`name` ó `year`, el `id` no puede editarse). Para esto, primero debe buscarla por el `id` y si no existe, debe agregar la nueva película, con el `id` correspondiente.
+- `PUT /api/movies/:id`: actualiza la info de una película (`title` ó `year`, el `id` no puede editarse). Para esto, primero debe buscarla por el `id` y si no existe, debe agregar la nueva película, con el `id` correspondiente.
 - `DELETE /api/movies/:id`: elimina la película con el `id` correspondiente. Para esto, primero debe buscarla por el `id`, si no existe, generar el error `"404 - The movie with the id {ID} was not found"` (donde ID es el parámetro utilizado), y un `status code` 404 y pasarle el objeto `err` a `next`. Los `ids` de las películas restantes deberán ser actualizados para seguir siendo consecutivos, desde 1 a `n`, donde `n` es la cantidad de películas.
 - `GET /api/movies/genres`: retorna la lista de géneros (sin repetir), correspondientes a las películas que tengamos
 - `GET /api/movies/years`: retorna la lista de años (sin repetir), correspondientes a las películas que tengamos
@@ -180,7 +180,7 @@ movie = {
 ### Query strings
 
 - Si se utiliza el query string `?year=`, deben retornarse las películas correspondientes a ese año, en formato `JSON`.
-- Si se utilizan los query strings `?sortBy=name` ó `?sortBy=year` con el endpoint `GET /api/movies`, debe retornarse la lista de películas ordenada por año ó nombre, respectivamente.
+- Si se utilizan los query strings `?sortBy=title` ó `?sortBy=year` con el endpoint `GET /api/movies`, debe retornarse la lista de películas ordenada por año ó nombre, respectivamente.
 
 En ambos casos, si no hay películas para mostrar, debe retornarse el array vacío `[]` (siempre como `JSON`).
 
@@ -188,7 +188,7 @@ En ambos casos, si no hay películas para mostrar, debe retornarse el array vac�
 
 Utilizar el middleware [`express-validator`](https://express-validator.github.io/) para realizar las siguientes validaciones sobre el input (`body` del request)
 
-- `name`: debe existir y tener al menos 2 caracteres, sino generar el error `movie name is required and should have minimum 2 characters.`, con `status code` 400 y pasarle el objeto `err` a `next`.
+- `title`: debe existir y tener al menos 2 caracteres, sino generar el error `movie title is required and should have minimum 2 characters.`, con `status code` 400 y pasarle el objeto `err` a `next`.
 - `year`: debe ser un valor numérico entre 1800 y 2020, sino generar el error `movie year is required and should be a number between 1800 and 2020.`, con `status code` 400 y pasarle el objeto `err` a `next`.
 
 ### Middleware a utilizar
