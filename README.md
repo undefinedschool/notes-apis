@@ -21,7 +21,25 @@
 
 ## API
 
-**A**pplication **P**rogramming **I**nterface), define una _interfaz_ con ciertas operaciones, que nos permiten interactuar con una aplicación. Una API expone datos y diferentes tipos de acciones que podemos realizar, a través de los _endpoints_.
+**A**pplication **P**rogramming **I**nterface), define una _interfaz_ con ciertas operaciones, que nos permiten interactuar con una aplicación hosteada en un servidor. 
+
+Nos permite agregar una barrera de seguridad: el cliente no puede acceder directamente a la DB sino a través de la API. 
+
+Una API expone datos y diferentes tipos de acciones que podemos realizar, a través de los _endpoints_, por ejemplo
+
+- Información disponible
+- Servicios
+- Parámetros
+- Formato de la respuesta
+
+**Una API forma parte del backend de una aplicación** y es independiente de los lenguajes y plataformas que utilicemos.
+
+[↑ Ir al inicio](https://github.com/undefinedschool/notes-apis#contenido)
+
+### Listas de APIs web disponibles para utilizar
+
+- [RapidAPI](https://rapidapi.com/)
+- [API List](https://apilist.fun/)
 
 [↑ Ir al inicio](https://github.com/undefinedschool/notes-apis#contenido)
 
@@ -37,9 +55,11 @@ REST (**Re**presentational **S**tate **T**ransfer) es una _convención_ para des
 - **`JSON`** como formato de intercambio
 - Acciones basadas en los **verbos HTTP**
 - Uso de los **status HTTP** (`200 - ok`, `404 - resource not found`, `500 - server error`, etc)
-- **Stateless**: los datos del _cliente_ no se almacenan en el servidor entre requests
+- **Stateless**: los datos del _cliente_ no se almacenan en el servidor entre requests. Cada request contiene toda la info necesaria para ser ejecutada, por lo que que ni el cliente ni el servidor necesitan recordar ningún estado previo.
 - **Arquitectura cliente<->servidor:** hay una separación de responsabilidades entre el frontend (cliente) y el backend (server). Operan de forma independiente entre sí y ambos pueden ser reemplazados.
 - **Cache**: la data que proviene del server puede ser _cacheada_ en el cliente, lo cual nos permite obtener mejoras de performance.
+
+Ver más detalles en [Core Principles of RESTful API](https://www.moesif.com/blog/api-guide/getting-started-with-apis/#core-principles-of-restful-api)
 
 [↑ Ir al inicio](https://github.com/undefinedschool/notes-apis#contenido)
 
