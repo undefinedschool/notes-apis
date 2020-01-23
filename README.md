@@ -20,12 +20,15 @@ REST (**Re**presentational **S**tate **T**ransfer) es una _convención_ para des
 
 [↑ Ir al inicio](https://github.com/undefinedschool/notes-apis#contenido)
 
-### Propiedades
+### Propiedades de una API REST
 
-- Utilizamos URLs para definir recursos
-- `JSON` como formato de intercambio
-- Acciones basadas en los verbos HTTP
-- Uso de los status HTTP (`200 - ok`, `404 - resource not found`, `500 - server error`, etc)
+- Utilizamos **URLs para definir recursos**
+- **`JSON`** como formato de intercambio
+- Acciones basadas en los **verbos HTTP**
+- Uso de los **status HTTP** (`200 - ok`, `404 - resource not found`, `500 - server error`, etc)
+- **Stateless**: los datos del _cliente_ no se almacenan en el servidor entre requests
+- **Arquitectura cliente<->servidor:** hay una separación de responsabilidades entre el frontend (cliente) y el backend (server). Operan de forma independiente entre sí y ambos pueden ser reemplazados.
+- **Cache**: la data que proviene del server puede ser _cacheada_ en el cliente, lo cual nos permite obtener mejoras de performance.
 
 ## CRUD
 
@@ -128,15 +131,16 @@ movie = {
 
 - `GET /api/movies`: retorna el array de películas, en formato `JSON`.
 - `GET /api/movies/:id`: retorna la película con el `id` correspondiente, en formato `JSON`. En el caso de que no exista, generar el error `"404 - The movie with the id {ID} was not found"` (donde ID es el parámetro utilizado) con `status code` 404 y pasarle el objeto `err` a `next`.
-- `GET /api/movies/:year`: retorna las películas correspondientes a ese año, en formato `JSON`.
 - `POST /api/movies`: agrega una nueva película, con la info especificada más arriba. Validar el `body` del request como se indica más abajo. Si es inválido, generar el error `"400 - Bad Request"` y pasarle el objeto `err` a `next`, sino, agregar la película correspondiente y retornar la info de la misma en el `response`.
-- `PUT /api/movies/:id`: actualiza la info de una película (`name` ó `year`, el `id` no puede editarse). Para esto, primero debe buscarla por el `id`, si no existe, generar el error `"404 - The movie with the id {ID} was not found"` (donde ID es el parámetro utilizado) con `status code` 404 y pasarle el objeto `err` a `next`.
-- `DELETE /api/movies/:id`: elimina la película con el `id` correspondiente. Para esto, primero debe buscarla por el `id`, si no existe, generar el error `"404 - The movie with the id {ID} was not found"` (donde ID es el parámetro utilizado), y un `status code` 404 y pasarle el objeto `err` a `next`.
+- `PUT /api/movies/:id`: actualiza la info de una película (`name` ó `year`, el `id` no puede editarse). Para esto, primero debe buscarla por el `id` y si no existe, debe agregar la nueva película, con el `id` correspondiente.
+- `DELETE /api/movies/:id`: elimina la película con el `id` correspondiente. Para esto, primero debe buscarla por el `id`, si no existe, generar el error `"404 - The movie with the id {ID} was not found"` (donde ID es el parámetro utilizado), y un `status code` 404 y pasarle el objeto `err` a `next`. Los `ids` de las películas restantes deberán ser actualizados para seguir siendo consecutivos, desde 1 a `n`, donde `n` es la cantidad de películas.
 
 ### Query strings
 
-- Si se utiliza el query string
+- Si se utiliza el query string `?year=`, deben retornarse las películas correspondientes a ese año, en formato `JSON`.
 - Si se utilizan los query strings `?sortBy=name` ó `?sortBy=year` con el endpoint `GET /api/movies`, debe retornarse la lista de películas ordenada por año ó nombre, respectivamente.
+
+En ambos casos, si no hay películas para mostrar, debe retornarse el array vacío `[]` (siempre como `JSON`).
 
 ### Validaciones
 
