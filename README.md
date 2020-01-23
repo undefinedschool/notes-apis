@@ -30,6 +30,8 @@ REST (**Re**presentational **S**tate **T**ransfer) es una _convención_ para des
 - **Arquitectura cliente<->servidor:** hay una separación de responsabilidades entre el frontend (cliente) y el backend (server). Operan de forma independiente entre sí y ambos pueden ser reemplazados.
 - **Cache**: la data que proviene del server puede ser _cacheada_ en el cliente, lo cual nos permite obtener mejoras de performance.
 
+[↑ Ir al inicio](https://github.com/undefinedschool/notes-apis#contenido)
+
 ## CRUD
 
 Una _API REST_ nos permite desarrollar servicios para crear, leer, actualizar o eliminar datos, conocidos como **CRUD operations** por sus siglas en inglés (**C**reate, **R**ead, **U**pdate, **D**elete).
@@ -107,6 +109,12 @@ Ver [httpstatuses.com](https://httpstatuses.com/)
 
 [↑ Ir al inicio](https://github.com/undefinedschool/notes-apis#contenido)
 
+## `path params` vs `query params` en una API REST
+
+Ver [When do I use path params vs. query params in a RESTful API?](https://stackoverflow.com/a/31261026)
+
+[↑ Ir al inicio](https://github.com/undefinedschool/notes-apis#contenido)
+
 ## Ejercicio
 
 Vamos a crear una API REST con `Express`. La misma tendrá información sobre películas, almacenada en un array.
@@ -125,6 +133,7 @@ movie = {
 - El array de películas estará inicialmente vacío. 
 - El `id` se calcula al agregar una nueva película (no forma parte del payload del request), según el orden (la primera tendrá `id=1`, la segunda `id=2`, etc).
 - Utilizar el `Router` de `Express` para definir la lógica de routing en un módulo aparte, y setear `/api` como prefijo de todas las rutas. Utilizar el método [`route()`](http://expressjs.com/en/4x/api.html#router.route), para definir las rutas de una forma más declarativa. 
+- Utilizar `nodemon` para desarrollar.
 - En caso de necesitar _debuggear_ la aplicación, utilizar [esta guía](https://itnext.io/the-absolute-easiest-way-to-debug-node-js-with-vscode-2e02ef5b1bad).
 
 ### API Endpoints
@@ -134,6 +143,8 @@ movie = {
 - `POST /api/movies`: agrega una nueva película, con la info especificada más arriba. Validar el `body` del request como se indica más abajo. Si es inválido, generar el error `"400 - Bad Request"` y pasarle el objeto `err` a `next`, sino, agregar la película correspondiente y retornar la info de la misma en el `response`.
 - `PUT /api/movies/:id`: actualiza la info de una película (`name` ó `year`, el `id` no puede editarse). Para esto, primero debe buscarla por el `id` y si no existe, debe agregar la nueva película, con el `id` correspondiente.
 - `DELETE /api/movies/:id`: elimina la película con el `id` correspondiente. Para esto, primero debe buscarla por el `id`, si no existe, generar el error `"404 - The movie with the id {ID} was not found"` (donde ID es el parámetro utilizado), y un `status code` 404 y pasarle el objeto `err` a `next`. Los `ids` de las películas restantes deberán ser actualizados para seguir siendo consecutivos, desde 1 a `n`, donde `n` es la cantidad de películas.
+- `GET /api/movies/genres`: retorna la lista de géneros (sin repetir), correspondientes a las películas que tengamos
+- `GET /api/movies/years`: retorna la lista de años (sin repetir), correspondientes a las películas que tengamos
 
 ### Query strings
 
@@ -149,11 +160,11 @@ Utilizar el middleware [`express-validator`](https://express-validator.github.io
 - `name`: debe existir y tener al menos 2 caracteres, sino generar el error `movie name is required and should have minimum 2 characters.`, con `status code` 400 y pasarle el objeto `err` a `next`.
 - `year`: debe ser un valor numérico entre 1800 y 2020, sino generar el error `movie year is required and should be a number between 1800 and 2020.`, con `status code` 400 y pasarle el objeto `err` a `next`.
 
-[↑ Ir al inicio](https://github.com/undefinedschool/notes-apis#contenido)
-
 ### Middleware a utilizar
 
 - `Router` de `Express`
 - Error-handling middleware (ver detalles en [helpful-express-middleware](https://www.rithmschool.com/courses/node-express-fundamentals/helpful-express-middleware))
 - [`express-validator`](https://express-validator.github.io/), para realizar las validaciones correspondientes
 - [`morgan`](https://www.npmjs.com/package/morgan), para loguear en la terminal todos los _requests_ y _responses_ generados
+
+[↑ Ir al inicio](https://github.com/undefinedschool/notes-apis#contenido)
