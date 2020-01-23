@@ -6,6 +6,17 @@
 
 ## Contenido
 
+- [API](https://github.com/undefinedschool/notes-apis#api)
+- [REST](https://github.com/undefinedschool/notes-apis#rest)
+  - [Propiedades de una API REST](https://github.com/undefinedschool/notes-apis#propiedades-de-una-api-rest)
+- [CRUD](https://github.com/undefinedschool/notes-apis#crud)
+- [API Key](https://github.com/undefinedschool/notes-apis#api-key)
+- [Endpoint](https://github.com/undefinedschool/notes-apis#endpoint)
+- [Verbos HTTP](https://github.com/undefinedschool/notes-apis#verbos-http)
+- [HTTP Status Codes](https://github.com/undefinedschool/notes-apis#http-status-codes)
+- [`path params` vs `query params` en una API REST](https://github.com/undefinedschool/notes-apis#path-params-vs-query-params-en-una-api-rest)
+- [Ejercicio](https://github.com/undefinedschool/notes-apis#ejercicio)
+
 ---
 
 ## API
@@ -40,7 +51,7 @@ Una _API REST_ nos permite desarrollar servicios para crear, leer, actualizar o 
 
 ## API Key
 
-Sirve para identificar al usuario/cliente que está realizando el request. Generalmente se utiliza para aplicar _rate limiting_ (limitar los recursos del servidor que podemos consumir de forma gratuita, por ejemplo bloqueando los requests después de cierta cantidad).
+Sirve para identificar al usuario/cliente que está realizando el request. Generalmente se utiliza para aplicar [_rate limiting_](https://apisyouwonthate.com/blog/what-is-api-rate-limiting-all-about) (limitar los recursos del servidor que podemos consumir de forma gratuita, por ejemplo bloqueando los requests después de cierta cantidad).
 
 Para más info, ver [Use Web APIs](https://github.com/thejsway/thejsway/blob/master/manuscript/chapter22.md).
 
