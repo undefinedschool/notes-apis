@@ -161,7 +161,7 @@ movie = {
 }
 ```
 
-- [Acá hay ejemplos de películas para usar](https://www.imdb.com/list/ls009796553/)
+- Acá hay [ejemplos de películas para usar](https://www.imdb.com/list/ls009796553/) y acá tenés un [JSON con muchas más](https://gist.githubusercontent.com/nhsz/0005c21e6ebf9da151c900ff458f320e/raw/ebc9303155c71f1652adbca8f33887ee51a9eeaa/movies.json)
 - El array de películas estará inicialmente vacío. 
 - El `id` se calcula al agregar una nueva película (no forma parte del payload del request), según el orden (la primera tendrá `id=1`, la segunda `id=2`, etc).
 - Utilizar el `Router` de `Express` para definir la lógica de routing en un módulo aparte, y setear `/api` como prefijo de todas las rutas. Utilizar el método [`route()`](http://expressjs.com/en/4x/api.html#router.route), para definir las rutas de una forma más declarativa. 
