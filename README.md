@@ -129,7 +129,7 @@ DELETE /api/customers/2
 
 - `GET`: Leer data de un recurso existente, sin modificarlo.
 - `POST`: Crear un nuevo recurso en el server, usando la info enviada en el _payload_ del request. Por convención, cuando creamos un nuevo recurso, debemos retornar el objeto que lo representa en el `response`.
-- `PUT`: Actualizar un recurso existente, usando la info enviada en el _payload_ del request.
+- `PUT`: Actualizar un recurso existente, usando la info enviada en el _payload_ del request. En el caso de que el recurso no exista, lo crea.
 - `DELETE`: Eliminar un recurso existente.
 
 [↑ Ir al inicio](https://github.com/undefinedschool/notes-apis#contenido)
