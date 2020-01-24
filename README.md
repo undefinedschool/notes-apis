@@ -161,6 +161,7 @@ movie = {
 }
 ```
 
+- [Acá hay ejemplos de películas para usar](https://www.imdb.com/list/ls009796553/)
 - El array de películas estará inicialmente vacío. 
 - El `id` se calcula al agregar una nueva película (no forma parte del payload del request), según el orden (la primera tendrá `id=1`, la segunda `id=2`, etc).
 - Utilizar el `Router` de `Express` para definir la lógica de routing en un módulo aparte, y setear `/api` como prefijo de todas las rutas. Utilizar el método [`route()`](http://expressjs.com/en/4x/api.html#router.route), para definir las rutas de una forma más declarativa. 
@@ -179,7 +180,8 @@ movie = {
 
 ### Query strings
 
-- Si se utiliza el query string `?year=`, deben retornarse las películas correspondientes a ese año, en formato `JSON`.
+- Si se utiliza el query string `?year=`, debe retornarse la lista de películas correspondientes a ese año, en formato `JSON`.
+- Si se utiliza el query string `?genre=`, debe retornarse la lista de películas correspondientes a ese género, en formato `JSON`.
 - Si se utilizan los query strings `?sortBy=title` ó `?sortBy=year` con el endpoint `GET /api/movies`, debe retornarse la lista de películas ordenada por año ó nombre, respectivamente.
 
 En ambos casos, si no hay películas para mostrar, debe retornarse el array vacío `[]` (siempre como `JSON`).
