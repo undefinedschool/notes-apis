@@ -162,7 +162,7 @@ movie = {
 ```
 
 - Acá hay [ejemplos de películas para usar](https://www.imdb.com/list/ls009796553/) y acá tenés un [JSON con muchas más](https://gist.githubusercontent.com/nhsz/0005c21e6ebf9da151c900ff458f320e/raw/ebc9303155c71f1652adbca8f33887ee51a9eeaa/movies.json).
-- El array de películas estará inicialmente vacío. 
+- El array de películas estará inicialmente vacío. Se recomienda utilizar un módulo aparte para el array (importarlo donde sea necesario) y definirle una API para interactuar con el mismo (ejemplo, si el array se llama `movies`, definir la operación `movies.add` para agregar una nueva película, etc)
 - El `id` se calcula al agregar una nueva película (no forma parte del payload del request), según el orden (la primera tendrá `id=1`, la segunda `id=2`, etc).
 - Utilizar el `Router` de `Express` para definir la lógica de routing en un módulo aparte, y setear `/api` como prefijo de todas las rutas. Utilizar el método [`route()`](http://expressjs.com/en/4x/api.html#router.route), para definir las rutas de una forma más declarativa. 
 - Utilizar `nodemon` para desarrollar.
@@ -180,9 +180,9 @@ movie = {
 
 ### Query strings
 
-- Si se utiliza el query string `?year=`, debe retornarse la lista de películas correspondientes a ese año, en formato `JSON`.
-- Si se utiliza el query string `?genre=`, debe retornarse la lista de películas correspondientes a ese género, en formato `JSON`.
-- Si se utilizan los query strings `?sortBy=title` ó `?sortBy=year` con el endpoint `GET /api/movies`, debe retornarse la lista de películas ordenada por año ó nombre, respectivamente.
+- Si se utiliza el query string `?year=` con `GET /api/movies`, debe retornarse la lista de películas correspondientes a ese año, en formato `JSON`.
+- Si se utiliza el query string `?genre=` con `GET /api/movies`, debe retornarse la lista de películas correspondientes a ese género, en formato `JSON`.
+- Si se utilizan los query strings `?sortBy=title` ó `?sortBy=year` con el endpoint `GET /api/movies`, debe retornarse la lista de películas ordenada por año ó nombre de forma ascendente, respectivamente.
 
 En ambos casos, si no hay películas para mostrar, debe retornarse el array vacío `[]` (siempre como `JSON`).
 
