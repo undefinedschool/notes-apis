@@ -58,8 +58,10 @@ REST (**Re**presentational **S**tate **T**ransfer) es una _convención_ para des
 - **Stateless**: los datos del _cliente_ no se almacenan en el servidor entre requests. Cada request contiene toda la info necesaria para ser ejecutada, por lo que que ni el cliente ni el servidor necesitan recordar ningún estado previo.
 - **Arquitectura cliente<->servidor:** hay una separación de responsabilidades entre el frontend (cliente) y el backend (server). Operan de forma independiente entre sí y ambos pueden ser reemplazados.
 - **Cache**: la data que proviene del server puede ser _cacheada_ en el cliente, lo cual nos permite obtener mejoras de performance.
+- **Sistema de capas**: el cliente no necesita saber si está interactuando directamente con un servidor, proxy, load balancer, etc.
+- **Interfaz uniforme** cada recurso del servicio REST debe tener una única dirección, "URI", que simplifica la interacción entre el cliente y el servidor.
 
-Ver más detalles en [Core Principles of RESTful API](https://www.moesif.com/blog/api-guide/getting-started-with-apis/#core-principles-of-restful-api)
+👉 Ver más detalles en [Core Principles of RESTful API](https://www.moesif.com/blog/api-guide/getting-started-with-apis/#core-principles-of-restful-api)
 
 [↑ Ir al inicio](https://github.com/undefinedschool/notes-apis#contenido)
 
