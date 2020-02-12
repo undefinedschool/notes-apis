@@ -83,6 +83,8 @@ Para más info, ver [Use Web APIs](https://github.com/thejsway/thejsway/blob/mas
 
 Un _endpoint_ de una API REST _expone un recurso o una colección de recursos_ para que sean consumidos. Un _endpoint_ incluye el tipo de acción (request) a realizar con el recurso (o la colección), la ruta y los parámetros necesarios. El tipo de acción está basado en los _verbos HTTP_ (`GET`, `POST`, `PUT`, `DELETE`, etc). Por ejemplo
 
+**Los endpoints que definamos tienen que resolver el siguiente problema: proveer una forma _uniforme_ de identificar los recursos disponibles** (interfaz uniforme)
+
 [↑ Ir al inicio](https://github.com/undefinedschool/notes-apis#contenido)
 
 ### Ejemplos
