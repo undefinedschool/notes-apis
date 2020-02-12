@@ -53,7 +53,7 @@ REST (**Re**presentational **S**tate **T**ransfer) es una _convención_ para des
 
 - Utilizamos **URLs para definir recursos**
 - **`JSON`** como formato de intercambio
-- Acciones basadas en los **verbos HTTP**
+- Acciones basadas en los **verbos HTTP** (utilizamos el protocolo **HTTP** para transferir datos)
 - Uso de los **status HTTP** (`200 - ok`, `404 - resource not found`, `500 - server error`, etc)
 - **Stateless**: los datos del _cliente_ no se almacenan en el servidor entre requests. Cada request contiene toda la info necesaria para ser ejecutada, por lo que que ni el cliente ni el servidor necesitan recordar ningún estado previo.
 - **Arquitectura cliente<->servidor:** hay una separación de responsabilidades entre el frontend (cliente) y el backend (server). Operan de forma independiente entre sí y ambos pueden ser reemplazados.
