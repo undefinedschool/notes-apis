@@ -3,7 +3,7 @@
 
 > 👉 Si te resultó útil, **se agradece que lo compartas para que le llegue a más gente!**
 
-# [WIP] Notas sobre APIs
+# ![Notas sobre APIs](https://i.imgur.com/3l1gvpO.png)
 
 ## Contenido
 
